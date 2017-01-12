@@ -44,44 +44,44 @@ public class Blob {
     private Direction getNextDirection(final int[][] matrix, final Direction previousDirection, final int row, final int column) {
         switch (previousDirection) {
         case right: {
-            if (isEdge(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
+            if (isSet(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
                 return Direction.up;
-            } else if (isEdge(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
+            } else if (isSet(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
                 return Direction.right;
-            } else if (isEdge(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
+            } else if (isSet(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
                 return Direction.down;
             } else {
                 return Direction.left;
             }
         }
         case left: {
-            if (isEdge(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
+            if (isSet(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
                 return Direction.down;
-            } else if (isEdge(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
+            } else if (isSet(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
                 return Direction.left;
-            } else if (isEdge(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
+            } else if (isSet(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
                 return Direction.up;
             } else {
                 return Direction.right;
             }
         }
         case up: {
-            if (isEdge(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
+            if (isSet(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
                 return Direction.left;
-            } else if (isEdge(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
+            } else if (isSet(matrix, row + Direction.up.getRow(), column + Direction.up.getColumn())) {
                 return Direction.up;
-            } else if (isEdge(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
+            } else if (isSet(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
                 return Direction.right;
             } else {
                 return Direction.down;
             }
         }
         case down: {
-            if (isEdge(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
+            if (isSet(matrix, row + Direction.right.getRow(), column + Direction.right.getColumn())) {
                 return Direction.right;
-            } else if (isEdge(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
+            } else if (isSet(matrix, row + Direction.down.getRow(), column + Direction.down.getColumn())) {
                 return Direction.down;
-            } else if (isEdge(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
+            } else if (isSet(matrix, row + Direction.left.getRow(), column + Direction.left.getColumn())) {
                 return Direction.left;
             } else {
                 return Direction.up;
@@ -102,7 +102,7 @@ public class Blob {
     private int[] getPointOfStartOfBlob(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int column = 0; column < matrix[0].length; column++) {
-                if (isEdge(matrix, row, column)) {
+                if (isSet(matrix, row, column)) {
                     return new int[] { row, column };
                 }
             }
@@ -110,7 +110,7 @@ public class Blob {
         return new int[] { -1, -1 };
     }
 
-    private boolean isEdge(int[][] matrix, int row, int column) {
+    private boolean isSet(int[][] matrix, int row, int column) {
         if (column < 0 || row < 0 || column >= matrix[0].length  || row >= matrix.length) {
             return false;
         }
