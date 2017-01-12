@@ -19,6 +19,12 @@ How to get the code:
 How to run the program:
 -----------------------
     $ java -jar out/artifacts/blob_jar/blob.jar inputBlob.txt
+    
+How to see the source code:
+---------------------------
+https://github.com/gabe0912/Blob/tree/master/src/main/java
+
+Main-Class: BlobBoundary.java
 
 Clarifications/Assumptions:
 ---------------------------
